@@ -1,1 +1,1 @@
-# bicentennial-clean-up
+# bicentennial scripts
