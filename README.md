@@ -1,1 +1,1 @@
-# bicentennial scripts
+# Bicentennial project scripts
