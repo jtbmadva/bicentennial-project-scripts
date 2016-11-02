@@ -37,8 +37,8 @@ df = df.drop('Description', axis=1)
 df = df.rename(columns={'Title': 'Info From Job'})
 
 #add box and call number columns
-df['Location'] = '15'###box number in '' here
-df['Call'] = 'RG-5/7/2.762' ###RG number in '' here
+df['Location'] = ''###box number in '' here
+df['Call'] = '' ###RG number in '' here
 
 #insert new empty columns for title and subject
 Title = pd.Series('')
