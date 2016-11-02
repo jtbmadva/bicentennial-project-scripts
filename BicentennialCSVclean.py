@@ -75,7 +75,7 @@ for i in dates:
 #create a series from the Date1 list. Add it as a column to df        
 DateCol = pd.Series(DateCol)
 df['Date'] = DateCol
-#df['Date']= df['Date'].str.strip()
+
 
 df.to_csv('clean_master_box_15.csv', encoding='utf-8')
 
