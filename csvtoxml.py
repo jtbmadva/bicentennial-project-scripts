@@ -7,14 +7,10 @@ import datetime as dt
 def runsch(rulesFile, xmlFile):
     rules = open(rulesFile, 'r')
     XML = open(xmlFile, 'r')
-    
     schema_doc = etree.parse(rules)
     xmlschema = etree.XMLSchema(schema_doc)
-    
     doc = etree.parse(XML)
-    
     validationResult = xmlschema.validate(doc)
-    
     if validationResult:
         print 'passed'
     else:
@@ -30,7 +26,7 @@ mods_schema_location='http://www.loc.gov/standards/mods/v3/mods-3-6.xsd'
 ns_map = {None: mods_ns, 'xsi': xsi_ns}
     
 
-##nan values to type string
+##change nan values to type string
 df['Subject 1'] = df['Subject 1'].astype(str)
 df['Subject 2'] = df['Subject 2'].astype(str)
 df['Subject 3'] = df['Subject 3'].astype(str)
