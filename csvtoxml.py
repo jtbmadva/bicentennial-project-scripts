@@ -106,7 +106,6 @@ for index, series in df[:].iterrows():
             subject_data = [i.strip(' ') for i in subject_data]
             topic = etree.SubElement(subject, 'topic', valueURI=authority_URI + subject_data[1])
             topic.text = subject_data[0]
-   
     subject_4 = etree.SubElement(mods, 'subject', authority='lcsh', authorityURI='http://id.loc.gov/authorities/subjects')
     name_4 = etree.SubElement(subject_4, 'name', type='corporate', authority='naf', authorityURI='http://id.loc.gov/authorities/names', valueURI='http://id.loc.gov/authorities/names/n79053979')
     namePart_4 = etree.SubElement(name_4, 'namePart')
@@ -122,7 +121,6 @@ for index, series in df[:].iterrows():
     state.text = 'Virginia'
     city = etree.SubElement(hierarchicalGeographic, 'city', valueURI='http://vocab.getty.edu/tgn/7013585')
     city.text = 'Charlottesville'
-   
     relatedItem_a = etree.SubElement(mods, 'relatedItem', type='series', displayLabel='Part of')
     titleInfo_b = etree.SubElement(relatedItem_a, 'titleInfo')
     title_b = etree.SubElement(titleInfo_b, 'title')
@@ -137,7 +135,7 @@ for index, series in df[:].iterrows():
     if series['Job'] == 'nan':
         identifier_a.text = ''
     else:
-        identifier_a.text = '00' + str(series['Job'])
+        identifier_a.text = str(series['Job'])
     identifier_b = etree.SubElement(mods, 'identifier', type='accession number')
     identifier_b.text = series['Call']
     identifier_c = etree.SubElement(mods, 'identifier', type='pid', displayLabel='UVA Library Fedora repository PID')
