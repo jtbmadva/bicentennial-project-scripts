@@ -68,9 +68,6 @@ for i in dates:
     elif re.match('^[0-9]*$', i):
         i = "'" + parse(i).strftime('%Y-%m-%d')
         DateCol.append(i)
-    else:
-        i = "'" + i
-        DateCol.append(i)
 
 #create a series from the Date1 list. Add it as a column to df        
 DateCol = pd.Series(DateCol)
