@@ -40,9 +40,6 @@ df['Id'] = df['Id'].astype(str)
 
 ##iterate through rows in the DataFrame
 for index, series in df[:].iterrows():
-    filename = series['Filename']
-    filename = filename[0:14]
-    f = open(filename +'.xml', 'wb')
     mods = etree.Element('{'+ mods_ns +'}mods', version = '3.6', attrib={'{'+ xsi_ns +'}schemaLocation' : mods_schema_location}, 
                          nsmap=ns_map)
                          
@@ -167,8 +164,10 @@ for index, series in df[:].iterrows():
     languageTerm.text = 'eng'
     descriptionStandard = etree.SubElement(recordInfo, 'descriptionStandard')
     descriptionStandard.text = 'dacs'
-        
-    f.write(etree.tostring(mods, xml_declaration=True, encoding='utf-8', pretty_print=True))
-    f.close()
+    
+    filename = series['Filename']
+    filename = filename[0:14]
+    with open(filename +'.xml', 'wb') as f:
+        f.write(etree.tostring(mods, xml_declaration=True, encoding='utf-8', pretty_print=True))
     runsch('mods-3-6.xsd', filename + '.xml')
     
