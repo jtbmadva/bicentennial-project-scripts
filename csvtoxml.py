@@ -22,7 +22,6 @@ def runsch(rulesFile, xmlFile):
     XML.close()
     
 df = pd.DataFrame.from_csv('bicentennial_5.csv')
-DateCol= []
 
 ##MODS namespace variables
 mods_ns='http://www.loc.gov/mods/v3'
