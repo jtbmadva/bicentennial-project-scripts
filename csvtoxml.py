@@ -3,21 +3,7 @@ from lxml import etree
 import pandas as pd
 import datetime as dt
 
-#MODS XMLSchema validation function
-def runsch(rulesFile, xmlFile):
-    rules = open(rulesFile, 'r')
-    XML = open(xmlFile, 'r')
-    schema_doc = etree.parse(rules)
-    xmlschema = etree.XMLSchema(schema_doc)
-    doc = etree.parse(XML)
-    validationResult = xmlschema.validate(doc)
-    if validationResult:
-        print 'passed'
-    else:
-        print(xmlFile + ' failed')
-    XML.close()
-    
-df = pd.DataFrame.from_csv('bicentennial_5.csv')
+df = pd.DataFrame.from_csv('')
 
 ##MODS namespace variables
 mods_ns='http://www.loc.gov/mods/v3'
@@ -108,8 +94,6 @@ for index, series in df[:].iterrows():
     namePart_4.text = 'University of Virginia'
     
     subject_5 = etree.SubElement(mods, 'subject', authority='tgn')
-    geographicCode = etree.SubElement(subject_5, 'geographicCode', authority='marcgac')
-    geographicCode.text = 'n-us-va'
     hierarchicalGeographic = etree.SubElement(subject_5, 'hierarchicalGeographic')
     country = etree.SubElement(hierarchicalGeographic, 'country', valueURI='http://vocab.getty.edu/tgn/7012149')
     country.text = 'United States'
@@ -163,5 +147,5 @@ for index, series in df[:].iterrows():
     filename = filename[0:14]
     with open(filename +'.xml', 'wb') as f:
         f.write(etree.tostring(mods, xml_declaration=True, encoding='utf-8', pretty_print=True))
-    runsch('mods-3-6.xsd', filename + '.xml')
+    
     
