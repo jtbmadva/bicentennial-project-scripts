@@ -8,7 +8,7 @@ import pandas as pd
 import re
 from dateutil.parser import parse
 
-df = pd.read_csv('master_box_15.csv')
+df = pd.read_csv('')
 
 #delete unneeded columns for metadata
 df = df.drop('Tech meta type', axis=1)
@@ -74,6 +74,6 @@ DateCol = pd.Series(DateCol)
 df['Date'] = DateCol
 
 
-df.to_csv('clean_master_box_15.csv', encoding='utf-8')
+df.to_csv('', encoding='utf-8')
 
 
