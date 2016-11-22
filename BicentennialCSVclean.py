@@ -60,17 +60,14 @@ df['Date']= df['Date'].str.strip()
 DateCol = []
 dates = df['Date'].tolist()
 for i in dates:
-    if len(str(i)) == 4:
+    if len(i) == 4:
         i = "'" + i
         DateCol.append(i)
     elif re.match('Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec', i):
         i = "'" + parse(i).strftime('%Y-%m')
         DateCol.append(i)
-    elif re.match('^[0-9]*$', i):
-        i = "'" + parse(i).strftime('%Y-%m-%d')
-        DateCol.append(i)
     else:
-        i = "'" + i
+        i = "'" + parse(i).strftime('%Y-%m-%d')
         DateCol.append(i)
 
 #create a series from the Date1 list. Add it as a column to df        
