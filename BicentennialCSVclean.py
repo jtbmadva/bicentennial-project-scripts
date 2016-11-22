@@ -8,7 +8,7 @@ import pandas as pd
 import re
 from dateutil.parser import parse
 
-df = pd.read_csv('')
+df = pd.read_csv('sample_data')
 
 #delete unneeded columns for metadata
 df = df.drop('Tech meta type', axis=1)
@@ -25,6 +25,7 @@ df = df.drop('Creator death date', axis=1)
 df = df.drop('Creation date', axis=1)
 df = df.drop('Primary author', axis=1)
 df = df.drop('Created at', axis=1)
+df = df.drop('Dpla', axis=1)
 
 #split the description column to date and job columns
 df['Date'] = df.Description.str.split('|').str[0]
@@ -68,12 +69,15 @@ for i in dates:
     elif re.match('^[0-9]*$', i):
         i = "'" + parse(i).strftime('%Y-%m-%d')
         DateCol.append(i)
+    else:
+        i = "'" + i
+        DateCol.append(i)
 
 #create a series from the Date1 list. Add it as a column to df        
 DateCol = pd.Series(DateCol)
 df['Date'] = DateCol
 
 
-df.to_csv('', encoding='utf-8')
+df.to_csv('clean_sample_data.csv', encoding='utf-8')
 
 
