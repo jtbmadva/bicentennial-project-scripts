@@ -8,7 +8,7 @@ import pandas as pd
 import re
 from dateutil.parser import parse
 
-df = pd.read_csv('sample_data')
+df = pd.read_csv('sample_data.csv')
 
 #delete unneeded columns for metadata
 df = df.drop('Tech meta type', axis=1)
