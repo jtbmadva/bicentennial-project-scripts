@@ -24,7 +24,6 @@ df = df.drop('Creator death date', axis=1)
 df = df.drop('Creation date', axis=1)
 df = df.drop('Primary author', axis=1)
 df = df.drop('Created at', axis=1)
-df = df.drop('Dpla', axis=1)
 
 df['Date'] = df.Description.str.split('|').str[0]
 df['Job'] = df.Description.str.split('|').str[1]
