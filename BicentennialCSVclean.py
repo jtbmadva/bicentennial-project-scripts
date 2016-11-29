@@ -46,7 +46,6 @@ Subject_3 = pd.Series('')
 df.insert(6, 'Subject 3', Subject_3)
 
 df['Job']= "'" + df['Job'].str.strip()
-df['Job']= df['Job'].str.replace('Folder ', '')
 df['Date']= df['Date'].str.strip()
 
 #date cleanup
