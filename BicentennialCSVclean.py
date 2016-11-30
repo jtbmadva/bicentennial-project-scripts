@@ -44,7 +44,7 @@ df.insert(5, 'Subject 2', Subject_2)
 Subject_3 = pd.Series('')
 df.insert(6, 'Subject 3', Subject_3)
 
-df['Job']= "'" + df['Job'].str.strip()
+df['Job']= "job" + df['Job'].str.strip()
 df['Date']= df['Date'].str.strip()
 
 #date cleanup
