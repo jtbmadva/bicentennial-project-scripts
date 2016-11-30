@@ -32,8 +32,8 @@ df = df.drop('Description', axis=1)
 
 df = df.rename(columns={'Title': 'Info From Job'})
 
-df['Location'] = '' ###box number in '' here
-df['Call'] = '' ###RG number in '' here
+df['Location'] = 'Box' ###box number in '' here
+df['Call'] = 'RG' ###RG number in '' here
 
 Title = pd.Series('')
 df.insert(2, 'Title', Title)
