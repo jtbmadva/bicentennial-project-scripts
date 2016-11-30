@@ -3,7 +3,7 @@ from lxml import etree
 import pandas as pd
 import datetime as dt
 
-df = pd.DataFrame.from_csv('')
+df = pd.DataFrame.from_csv('sample_cataloged_data.csv')
 
 ##MODS namespace variables
 mods_ns='http://www.loc.gov/mods/v3'
@@ -115,7 +115,7 @@ for index, series in df[:].iterrows():
     if series['Job'] == 'nan':
         identifier_a.text = ''
     else:
-        identifier_a.text = str(series['Job'])
+        identifier_a.text = series['Job'][3:]
     identifier_b = etree.SubElement(mods, 'identifier', type='accession number')
     identifier_b.text = series['Call']
     identifier_c = etree.SubElement(mods, 'identifier', type='pid', displayLabel='UVA Library Fedora repository PID')
