@@ -27,7 +27,15 @@ for index, series in df[:].iterrows():
                          
     titleInfo_a = etree.SubElement(mods, 'titleInfo')
     title_a = etree.SubElement(titleInfo_a, 'title')
-    if series['Title'].startswith('The ' or 'A ' or 'An ' ):
+    if series['Title'].startswith('The '):
+        title_a.text = ' '.join(series['Title'].split()[1:])
+        nonSort = etree.SubElement(titleInfo_a, 'nonSort')
+        nonSort.text = series['Title'].split()[0]
+    elif series['Title'].startswith('A '):
+        title_a.text = ' '.join(series['Title'].split()[1:])
+        nonSort = etree.SubElement(titleInfo_a, 'nonSort')
+        nonSort.text = series['Title'].split()[0]
+    elif series['Title'].startswith('An '):
         title_a.text = ' '.join(series['Title'].split()[1:])
         nonSort = etree.SubElement(titleInfo_a, 'nonSort')
         nonSort.text = series['Title'].split()[0]
