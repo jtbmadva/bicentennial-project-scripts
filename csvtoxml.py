@@ -135,7 +135,7 @@ for index, series in df[:].iterrows():
     
     location = etree.SubElement(mods, 'location')
     physicalLocation = etree.SubElement(location, 'physicalLocation')
-    physicalLocation.text = 'Special Collections Library, University of Virginia Libraries, Charlottesville, Va.'
+    physicalLocation.text = 'Special Collections, University of Virginia Library, Charlottesville, Va.'
     shelfLocation = etree.SubElement(location, 'shelfLocator')
     shelfLocation.text = series['Location']
     
