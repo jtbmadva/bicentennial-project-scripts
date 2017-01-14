@@ -35,14 +35,10 @@ df = df.rename(columns={'Title': 'Info From Job'})
 df['Location'] = 'Box' ###box number in '' here
 df['Call'] = 'RG' ###RG number in '' here
 
-Title = pd.Series('')
-df.insert(2, 'Title', Title)
-Subject_1 = pd.Series('')
-df.insert(4, 'Subject 1', Subject_1)
-Subject_2 = pd.Series('')
-df.insert(5, 'Subject 2', Subject_2)
-Subject_3 = pd.Series('')
-df.insert(6, 'Subject 3', Subject_3)
+df.insert(2, 'Title', value='')
+df.insert(4, 'Subject 1', value='')
+df.insert(5, 'Subject 2', value='')
+df.insert(6, 'Subject 3', value='')
 
 df['Job']= "job" + df['Job'].str.strip()
 df['Date']= df['Date'].str.strip()
