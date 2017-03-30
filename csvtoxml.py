@@ -49,9 +49,6 @@ for index, series in df[:].iterrows():
     typeOfResource = etree.SubElement(mods,'typeOfResource')
     typeOfResource.text = 'still image'
     
-    genre = etree.SubElement(mods, 'genre', authority='lctgm', authorityURI='http://id.loc.gov/vocabulary/graphicMaterials', valueURI='http://id.loc.gov/vocabulary/graphicMaterials/tgm007721')
-    genre.text = 'Photographs'
-    
     originInfo = etree.SubElement(mods, 'originInfo')
     place = etree.SubElement(originInfo, 'place')
     placeterm = etree.SubElement(place, 'placeTerm', type='text')
@@ -65,15 +62,15 @@ for index, series in df[:].iterrows():
     physicalDescription = etree.SubElement(mods, 'physicalDescription')
     internetMediaType = etree.SubElement(physicalDescription, 'internetMediaType')
     internetMediaType.text = 'image/tiff'
-    extent = etree.SubElement(physicalDescription, 'extent')
-    extent.text = '1 photograph'
+    form = etree.SubElement(physicalDescription, 'form', authority='lctgm', authorityURI = 'http://id.loc.gov/vocabulary/graphicMaterials', valueURI = 'http://id.loc.gov/vocabulary/graphicMaterials/tgm007721')
+    form.text = 'Photographs'
     digitalOrigin = etree.SubElement(physicalDescription, 'digitalOrigin')
     digitalOrigin.text = 'reformatted digital'
     
     note_a = etree.SubElement(mods, 'note', displayLabel='staff')
     note_a.text = 'Original photographs and negatives arranged in sequence by file numbers, not the original job orders stamped on them.'
     note_b = etree.SubElement(mods, 'note', displayLabel='staff')   
-    note_b.text = 'From the non-portrait file of David Skinner, photographer for the University of Virginia Graphic Communications Services.'
+    note_b.text = 'From the non-portrait file of David Skinner, photographer for the University of Virginia Graphic Communications Services. Various photographers contributed to the file.'
     note_c = etree.SubElement(mods, 'note', displayLabel='staff')
     note_c.text = 'Additional non-digitized items from the collection are available by patron request in the Special Collections Reading Room.' 
     
